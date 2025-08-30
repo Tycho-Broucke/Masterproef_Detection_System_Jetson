@@ -1,0 +1,8 @@
+# Request
+# (no request fields)
+
+---
+# Response
+bool success
+string message
+sensor_msgs/Image image

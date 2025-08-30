@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>masterproef_nodes</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="tycho@todo.todo">tycho</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- Corrected dependency -->
+  <depend>rclpy</depend>
+  <depend>masterproef_interfaces</depend>
+  
+  <!-- Your existing dependencies -->
+  <depend>std_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>std_srvs</depend>
+  <depend>sensor_msgs</depend>
+
+  <!-- Exec dependencies -->
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-pandas</exec_depend>
+  <exec_depend>python3-watchdog</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>ultralytics</exec_depend>
+
+  <!-- 🔧 Added for launching support -->
+  <build_depend>launch</build_depend>
+  <exec_depend>launch</exec_depend>
+  <build_depend>launch_ros</build_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- Test dependencies -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>  
+
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
