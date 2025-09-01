@@ -41,7 +41,9 @@ setup(
             'zone_location_selector = masterproef_nodes.zone_location_selector:main',
             'image_provider = masterproef_nodes.image_provider:main',
             'calibrated_image_provider = masterproef_nodes.calibrated_image_provider:main',
-            'csv_transform_watcher = masterproef_nodes.csv_transform_watcher:main'
+            'csv_transform_watcher = masterproef_nodes.csv_transform_watcher:main',
+            'goal_sender = masterproef_nodes.goal_sender:main',
+            'target_selector_node_unfiltered = masterproef_nodes.target_selector_node_unfiltered:main',
         ],
     },
 )
