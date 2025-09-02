@@ -89,14 +89,6 @@ class TargetSelectorNodeUnfiltered(Node):
         # Subscription to CSV transform data updates
         self.create_subscription(String, 'csv_transform_data', self.csv_transform_callback, 10)
 
-        # Client to request transform CSV updates
-        self.client = self.create_client(Trigger, 'csv_transform_trigger')
-        while not self.client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('Waiting for csv_transform_trigger service...')
-        self.request_transform_csv()
-
-        self.get_logger().info("TargetSelectorNodeUnfiltered started")
-
         # Store the latest target to always send only the newest goal
         self.latest_target = None
 
@@ -105,6 +97,14 @@ class TargetSelectorNodeUnfiltered(Node):
 
         # Flag to track if a goal cancellation is in progress
         self.cancelling = False
+        
+        # Client to request transform CSV updates
+        self.client = self.create_client(Trigger, 'csv_transform_trigger')
+        while not self.client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for csv_transform_trigger service...')
+        self.request_transform_csv()
+
+        self.get_logger().info("TargetSelectorNodeUnfiltered started")
 
     def request_transform_csv(self):
         """Request the latest transform CSV from the csv_transform_watcher node."""
@@ -237,10 +237,11 @@ class TargetSelectorNodeUnfiltered(Node):
         """Send a NavigateToPose goal to Nav2."""
         x, y = target
         goal_msg = NavigateToPose.Goal()
-        goal_msg.pose = self.create_pose_stamped(x, y).pose
+        goal_msg.pose = self.create_pose_stamped(x, y)  # assign the PoseStamped directly
         self.get_logger().info(f"Sending new goal: x={x}, y={y}")
         send_future = self._client.send_goal_async(goal_msg)
         send_future.add_done_callback(self.goal_response_callback)
+
 
     def goal_response_callback(self, future: Future):
         """Handle goal acceptance from Nav2."""
