@@ -44,6 +44,7 @@ setup(
             'csv_transform_watcher = masterproef_nodes.csv_transform_watcher:main',
             'goal_sender = masterproef_nodes.goal_sender:main',
             'target_selector_node_unfiltered = masterproef_nodes.target_selector_node_unfiltered:main',
+            'target_selector_node_filtered = masterproef_nodes.target_selector_node_filtered:main',
         ],
     },
 )
