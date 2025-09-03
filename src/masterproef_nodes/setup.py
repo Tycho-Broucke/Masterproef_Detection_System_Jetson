@@ -29,6 +29,7 @@ setup(
             'csv_zone_watcher = masterproef_nodes.csv_zone_watcher:main',
             'target_selector_node = masterproef_nodes.target_selector_node:main',
             'yolo_node = masterproef_nodes.yolo_node:main',
+            'yolo_node_dual_models = masterproef_nodes.yolo_node_dual_models:main',
             'yolo_node_speed_test = masterproef_nodes.yolo_node_speed_test:main',
             'heartbeat_publisher = masterproef_nodes.heartbeat_publisher:main',  
             'heartbeat_monitor = masterproef_nodes.heartbeat_monitor:main',
